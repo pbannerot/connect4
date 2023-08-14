@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Logging
+Bundle-SymbolicName: com.esolution.logging
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: ESOLUTION
+Fragment-Host: org.apache.log4j;bundle-version="1.2.24"
+Require-Bundle: org.apache.commons.logging;bundle-version="1.2.0"
+Automatic-Module-Name: com.esolution.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-18

@@ -14,16 +14,32 @@
       <genEnumLiterals ecoreEnumLiteral="game.ecore#//Side/YELLOW"/>
       <genEnumLiterals ecoreEnumLiteral="game.ecore#//Side/RED"/>
     </genEnums>
-    <genClasses ecoreClass="game.ecore#//Game"/>
-    <genClasses ecoreClass="game.ecore#//Team"/>
-    <genClasses ecoreClass="game.ecore#//Board">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference game.ecore#//Board/square"/>
+    <genClasses ecoreClass="game.ecore#//Game">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference game.ecore#//Game/board"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference game.ecore#//Game/teams"/>
     </genClasses>
-    <genClasses ecoreClass="game.ecore#//Piece"/>
+    <genClasses ecoreClass="game.ecore#//Team">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute game.ecore#//Team/side"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference game.ecore#//Team/player"/>
+    </genClasses>
+    <genClasses ecoreClass="game.ecore#//Board">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference game.ecore#//Board/squares"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute game.ecore#//Board/nbRow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute game.ecore#//Board/nbColumn"/>
+    </genClasses>
+    <genClasses ecoreClass="game.ecore#//Piece">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference game.ecore#//Piece/square"/>
+    </genClasses>
     <genClasses ecoreClass="game.ecore#//RedPiece"/>
     <genClasses ecoreClass="game.ecore#//YellowPiece"/>
-    <genClasses ecoreClass="game.ecore#//Square"/>
-    <genClasses ecoreClass="game.ecore#//Player"/>
+    <genClasses ecoreClass="game.ecore#//Square">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute game.ecore#//Square/row"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute game.ecore#//Square/column"/>
+      <genOperations ecoreOperation="game.ecore#//Square/getImage"/>
+    </genClasses>
+    <genClasses ecoreClass="game.ecore#//Player">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference game.ecore#//Player/pieces"/>
+    </genClasses>
     <genClasses ecoreClass="game.ecore#//HumanPlayer"/>
     <genClasses ecoreClass="game.ecore#//RandomPlayer"/>
     <genClasses ecoreClass="game.ecore#//AIPlayer"/>

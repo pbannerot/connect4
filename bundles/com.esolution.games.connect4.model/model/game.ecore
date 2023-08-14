@@ -1,21 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="game" nsURI="http://www.esolution.com/connect4" nsPrefix="connect4">
-  <eClassifiers xsi:type="ecore:EClass" name="Game"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Team"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Board">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="square" upperBound="-1"
-        eType="#//Square" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Game">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="board" lowerBound="1" eType="#//Board"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teams" upperBound="2" eType="#//Team"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Piece" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Team">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="side" eType="#//Side"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="player" lowerBound="1"
+        eType="#//Player" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Board">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="squares" upperBound="-1"
+        eType="#//Square" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nbRow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="6"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nbColumn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="7"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Piece" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="square" lowerBound="1"
+        eType="#//Square"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RedPiece" eSuperTypes="#//Piece"/>
   <eClassifiers xsi:type="ecore:EClass" name="YellowPiece" eSuperTypes="#//Piece"/>
   <eClassifiers xsi:type="ecore:EEnum" name="Side">
     <eLiterals name="YELLOW"/>
     <eLiterals name="RED" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Square"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Player" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Square">
+    <eOperations name="getImage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="row" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="column" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Player" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pieces" upperBound="21"
+        eType="#//Piece" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HumanPlayer" eSuperTypes="#//Player"/>
   <eClassifiers xsi:type="ecore:EClass" name="RandomPlayer" eSuperTypes="#//Player"/>
   <eClassifiers xsi:type="ecore:EClass" name="AIPlayer" eSuperTypes="#//Player"/>

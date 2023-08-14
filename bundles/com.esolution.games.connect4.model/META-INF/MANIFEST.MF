@@ -1,7 +1,17 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: com.esolution.games.connect4.model
-Bundle-SymbolicName: com.esolution.games.connect4.model; singleton:=true
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.esolution.games.connect4.model;singleton:=true
+Automatic-Module-Name: com.esolution.games.connect4.model
 Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: com.esolution.games.connect4.model.game,
+ com.esolution.games.connect4.model.game.impl,
+ com.esolution.games.connect4.model.game.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ org.eclipse.jface
+Bundle-ActivationPolicy: lazy
