@@ -197,60 +197,32 @@ public interface GamePackage extends EPackage {
 	int BOARD_FEATURE_COUNT = 3;
 
 	/**
+	 * The operation id for the '<em>Get First Available Square</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD___GET_FIRST_AVAILABLE_SQUARE__INT = 0;
+
+	/**
 	 * The number of operations of the '<em>Board</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_OPERATION_COUNT = 0;
+	int BOARD_OPERATION_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link com.esolution.games.connect4.model.game.impl.PieceImpl <em>Piece</em>}' class.
+	 * The meta object id for the '{@link com.esolution.games.connect4.model.game.Token <em>Token</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.esolution.games.connect4.model.game.impl.PieceImpl
-	 * @see com.esolution.games.connect4.model.game.impl.GamePackageImpl#getPiece()
+	 * @see com.esolution.games.connect4.model.game.Token
+	 * @see com.esolution.games.connect4.model.game.impl.GamePackageImpl#getToken()
 	 * @generated
 	 */
-	int PIECE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Square</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIECE__SQUARE = 0;
-
-	/**
-	 * The number of structural features of the '<em>Piece</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIECE_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Piece</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIECE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.esolution.games.connect4.model.game.impl.RedPieceImpl <em>Red Piece</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.esolution.games.connect4.model.game.impl.RedPieceImpl
-	 * @see com.esolution.games.connect4.model.game.impl.GamePackageImpl#getRedPiece()
-	 * @generated
-	 */
-	int RED_PIECE = 4;
+	int TOKEN = 3;
 
 	/**
 	 * The feature id for the '<em><b>Square</b></em>' reference.
@@ -259,35 +231,62 @@ public interface GamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RED_PIECE__SQUARE = PIECE__SQUARE;
+	int TOKEN__SQUARE = 0;
 
 	/**
-	 * The number of structural features of the '<em>Red Piece</em>' class.
+	 * The number of structural features of the '<em>Token</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RED_PIECE_FEATURE_COUNT = PIECE_FEATURE_COUNT + 0;
+	int TOKEN_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of operations of the '<em>Red Piece</em>' class.
+	 * The operation id for the '<em>Get Side</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RED_PIECE_OPERATION_COUNT = PIECE_OPERATION_COUNT + 0;
+	int TOKEN___GET_SIDE = 0;
 
 	/**
-	 * The meta object id for the '{@link com.esolution.games.connect4.model.game.impl.YellowPieceImpl <em>Yellow Piece</em>}' class.
+	 * The operation id for the '<em>Get Opposite Side</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.esolution.games.connect4.model.game.impl.YellowPieceImpl
-	 * @see com.esolution.games.connect4.model.game.impl.GamePackageImpl#getYellowPiece()
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN___GET_OPPOSITE_SIDE = 1;
+
+	/**
+	 * The operation id for the '<em>Get Image File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN___GET_IMAGE_FILE = 2;
+
+	/**
+	 * The number of operations of the '<em>Token</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN_OPERATION_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link com.esolution.games.connect4.model.game.impl.RedTokenImpl <em>Red Token</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.esolution.games.connect4.model.game.impl.RedTokenImpl
+	 * @see com.esolution.games.connect4.model.game.impl.GamePackageImpl#getRedToken()
 	 * @generated
 	 */
-	int YELLOW_PIECE = 5;
+	int RED_TOKEN = 4;
 
 	/**
 	 * The feature id for the '<em><b>Square</b></em>' reference.
@@ -296,25 +295,116 @@ public interface GamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YELLOW_PIECE__SQUARE = PIECE__SQUARE;
+	int RED_TOKEN__SQUARE = TOKEN__SQUARE;
 
 	/**
-	 * The number of structural features of the '<em>Yellow Piece</em>' class.
+	 * The number of structural features of the '<em>Red Token</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YELLOW_PIECE_FEATURE_COUNT = PIECE_FEATURE_COUNT + 0;
+	int RED_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Yellow Piece</em>' class.
+	 * The operation id for the '<em>Get Side</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YELLOW_PIECE_OPERATION_COUNT = PIECE_OPERATION_COUNT + 0;
+	int RED_TOKEN___GET_SIDE = TOKEN___GET_SIDE;
+
+	/**
+	 * The operation id for the '<em>Get Opposite Side</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RED_TOKEN___GET_OPPOSITE_SIDE = TOKEN___GET_OPPOSITE_SIDE;
+
+	/**
+	 * The operation id for the '<em>Get Image File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RED_TOKEN___GET_IMAGE_FILE = TOKEN___GET_IMAGE_FILE;
+
+	/**
+	 * The number of operations of the '<em>Red Token</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RED_TOKEN_OPERATION_COUNT = TOKEN_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.esolution.games.connect4.model.game.impl.YellowTokenImpl <em>Yellow Token</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.esolution.games.connect4.model.game.impl.YellowTokenImpl
+	 * @see com.esolution.games.connect4.model.game.impl.GamePackageImpl#getYellowToken()
+	 * @generated
+	 */
+	int YELLOW_TOKEN = 5;
+
+	/**
+	 * The feature id for the '<em><b>Square</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YELLOW_TOKEN__SQUARE = TOKEN__SQUARE;
+
+	/**
+	 * The number of structural features of the '<em>Yellow Token</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YELLOW_TOKEN_FEATURE_COUNT = TOKEN_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Side</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YELLOW_TOKEN___GET_SIDE = TOKEN___GET_SIDE;
+
+	/**
+	 * The operation id for the '<em>Get Opposite Side</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YELLOW_TOKEN___GET_OPPOSITE_SIDE = TOKEN___GET_OPPOSITE_SIDE;
+
+	/**
+	 * The operation id for the '<em>Get Image File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YELLOW_TOKEN___GET_IMAGE_FILE = TOKEN___GET_IMAGE_FILE;
+
+	/**
+	 * The number of operations of the '<em>Yellow Token</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YELLOW_TOKEN_OPERATION_COUNT = TOKEN_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.esolution.games.connect4.model.game.impl.SquareImpl <em>Square</em>}' class.
@@ -345,13 +435,22 @@ public interface GamePackage extends EPackage {
 	int SQUARE__COLUMN = 1;
 
 	/**
+	 * The feature id for the '<em><b>Token</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SQUARE__TOKEN = 2;
+
+	/**
 	 * The number of structural features of the '<em>Square</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SQUARE_FEATURE_COUNT = 2;
+	int SQUARE_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Get Image</em>' operation.
@@ -363,13 +462,22 @@ public interface GamePackage extends EPackage {
 	int SQUARE___GET_IMAGE = 0;
 
 	/**
+	 * The operation id for the '<em>Is Empty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SQUARE___IS_EMPTY = 1;
+
+	/**
 	 * The number of operations of the '<em>Square</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SQUARE_OPERATION_COUNT = 1;
+	int SQUARE_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.esolution.games.connect4.model.game.impl.PlayerImpl <em>Player</em>}' class.
@@ -382,13 +490,13 @@ public interface GamePackage extends EPackage {
 	int PLAYER = 7;
 
 	/**
-	 * The feature id for the '<em><b>Pieces</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Tokens</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLAYER__PIECES = 0;
+	int PLAYER__TOKENS = 0;
 
 	/**
 	 * The number of structural features of the '<em>Player</em>' class.
@@ -419,13 +527,13 @@ public interface GamePackage extends EPackage {
 	int HUMAN_PLAYER = 8;
 
 	/**
-	 * The feature id for the '<em><b>Pieces</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Tokens</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HUMAN_PLAYER__PIECES = PLAYER__PIECES;
+	int HUMAN_PLAYER__TOKENS = PLAYER__TOKENS;
 
 	/**
 	 * The number of structural features of the '<em>Human Player</em>' class.
@@ -456,13 +564,13 @@ public interface GamePackage extends EPackage {
 	int RANDOM_PLAYER = 9;
 
 	/**
-	 * The feature id for the '<em><b>Pieces</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Tokens</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RANDOM_PLAYER__PIECES = PLAYER__PIECES;
+	int RANDOM_PLAYER__TOKENS = PLAYER__TOKENS;
 
 	/**
 	 * The number of structural features of the '<em>Random Player</em>' class.
@@ -493,13 +601,13 @@ public interface GamePackage extends EPackage {
 	int AI_PLAYER = 10;
 
 	/**
-	 * The feature id for the '<em><b>Pieces</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Tokens</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AI_PLAYER__PIECES = PLAYER__PIECES;
+	int AI_PLAYER__TOKENS = PLAYER__TOKENS;
 
 	/**
 	 * The number of structural features of the '<em>AI Player</em>' class.
@@ -637,45 +745,85 @@ public interface GamePackage extends EPackage {
 	EAttribute getBoard_NbColumn();
 
 	/**
-	 * Returns the meta object for class '{@link com.esolution.games.connect4.model.game.Piece <em>Piece</em>}'.
+	 * Returns the meta object for the '{@link com.esolution.games.connect4.model.game.Board#getFirstAvailableSquare(int) <em>Get First Available Square</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Piece</em>'.
-	 * @see com.esolution.games.connect4.model.game.Piece
+	 * @return the meta object for the '<em>Get First Available Square</em>' operation.
+	 * @see com.esolution.games.connect4.model.game.Board#getFirstAvailableSquare(int)
 	 * @generated
 	 */
-	EClass getPiece();
+	EOperation getBoard__GetFirstAvailableSquare__int();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.esolution.games.connect4.model.game.Piece#getSquare <em>Square</em>}'.
+	 * Returns the meta object for class '{@link com.esolution.games.connect4.model.game.Token <em>Token</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Token</em>'.
+	 * @see com.esolution.games.connect4.model.game.Token
+	 * @generated
+	 */
+	EClass getToken();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.esolution.games.connect4.model.game.Token#getSquare <em>Square</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Square</em>'.
-	 * @see com.esolution.games.connect4.model.game.Piece#getSquare()
-	 * @see #getPiece()
+	 * @see com.esolution.games.connect4.model.game.Token#getSquare()
+	 * @see #getToken()
 	 * @generated
 	 */
-	EReference getPiece_Square();
+	EReference getToken_Square();
 
 	/**
-	 * Returns the meta object for class '{@link com.esolution.games.connect4.model.game.RedPiece <em>Red Piece</em>}'.
+	 * Returns the meta object for the '{@link com.esolution.games.connect4.model.game.Token#getSide() <em>Get Side</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Red Piece</em>'.
-	 * @see com.esolution.games.connect4.model.game.RedPiece
+	 * @return the meta object for the '<em>Get Side</em>' operation.
+	 * @see com.esolution.games.connect4.model.game.Token#getSide()
 	 * @generated
 	 */
-	EClass getRedPiece();
+	EOperation getToken__GetSide();
 
 	/**
-	 * Returns the meta object for class '{@link com.esolution.games.connect4.model.game.YellowPiece <em>Yellow Piece</em>}'.
+	 * Returns the meta object for the '{@link com.esolution.games.connect4.model.game.Token#getOppositeSide() <em>Get Opposite Side</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Yellow Piece</em>'.
-	 * @see com.esolution.games.connect4.model.game.YellowPiece
+	 * @return the meta object for the '<em>Get Opposite Side</em>' operation.
+	 * @see com.esolution.games.connect4.model.game.Token#getOppositeSide()
 	 * @generated
 	 */
-	EClass getYellowPiece();
+	EOperation getToken__GetOppositeSide();
+
+	/**
+	 * Returns the meta object for the '{@link com.esolution.games.connect4.model.game.Token#getImageFile() <em>Get Image File</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Image File</em>' operation.
+	 * @see com.esolution.games.connect4.model.game.Token#getImageFile()
+	 * @generated
+	 */
+	EOperation getToken__GetImageFile();
+
+	/**
+	 * Returns the meta object for class '{@link com.esolution.games.connect4.model.game.RedToken <em>Red Token</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Red Token</em>'.
+	 * @see com.esolution.games.connect4.model.game.RedToken
+	 * @generated
+	 */
+	EClass getRedToken();
+
+	/**
+	 * Returns the meta object for class '{@link com.esolution.games.connect4.model.game.YellowToken <em>Yellow Token</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Yellow Token</em>'.
+	 * @see com.esolution.games.connect4.model.game.YellowToken
+	 * @generated
+	 */
+	EClass getYellowToken();
 
 	/**
 	 * Returns the meta object for class '{@link com.esolution.games.connect4.model.game.Square <em>Square</em>}'.
@@ -710,6 +858,17 @@ public interface GamePackage extends EPackage {
 	EAttribute getSquare_Column();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.esolution.games.connect4.model.game.Square#getToken <em>Token</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Token</em>'.
+	 * @see com.esolution.games.connect4.model.game.Square#getToken()
+	 * @see #getSquare()
+	 * @generated
+	 */
+	EReference getSquare_Token();
+
+	/**
 	 * Returns the meta object for the '{@link com.esolution.games.connect4.model.game.Square#getImage() <em>Get Image</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -718,6 +877,16 @@ public interface GamePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSquare__GetImage();
+
+	/**
+	 * Returns the meta object for the '{@link com.esolution.games.connect4.model.game.Square#isEmpty() <em>Is Empty</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Empty</em>' operation.
+	 * @see com.esolution.games.connect4.model.game.Square#isEmpty()
+	 * @generated
+	 */
+	EOperation getSquare__IsEmpty();
 
 	/**
 	 * Returns the meta object for class '{@link com.esolution.games.connect4.model.game.Player <em>Player</em>}'.
@@ -730,15 +899,15 @@ public interface GamePackage extends EPackage {
 	EClass getPlayer();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.esolution.games.connect4.model.game.Player#getPieces <em>Pieces</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.esolution.games.connect4.model.game.Player#getTokens <em>Tokens</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Pieces</em>'.
-	 * @see com.esolution.games.connect4.model.game.Player#getPieces()
+	 * @return the meta object for the containment reference list '<em>Tokens</em>'.
+	 * @see com.esolution.games.connect4.model.game.Player#getTokens()
 	 * @see #getPlayer()
 	 * @generated
 	 */
-	EReference getPlayer_Pieces();
+	EReference getPlayer_Tokens();
 
 	/**
 	 * Returns the meta object for class '{@link com.esolution.games.connect4.model.game.HumanPlayer <em>Human Player</em>}'.
@@ -890,14 +1059,22 @@ public interface GamePackage extends EPackage {
 		EAttribute BOARD__NB_COLUMN = eINSTANCE.getBoard_NbColumn();
 
 		/**
-		 * The meta object literal for the '{@link com.esolution.games.connect4.model.game.impl.PieceImpl <em>Piece</em>}' class.
+		 * The meta object literal for the '<em><b>Get First Available Square</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.esolution.games.connect4.model.game.impl.PieceImpl
-		 * @see com.esolution.games.connect4.model.game.impl.GamePackageImpl#getPiece()
 		 * @generated
 		 */
-		EClass PIECE = eINSTANCE.getPiece();
+		EOperation BOARD___GET_FIRST_AVAILABLE_SQUARE__INT = eINSTANCE.getBoard__GetFirstAvailableSquare__int();
+
+		/**
+		 * The meta object literal for the '{@link com.esolution.games.connect4.model.game.Token <em>Token</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.esolution.games.connect4.model.game.Token
+		 * @see com.esolution.games.connect4.model.game.impl.GamePackageImpl#getToken()
+		 * @generated
+		 */
+		EClass TOKEN = eINSTANCE.getToken();
 
 		/**
 		 * The meta object literal for the '<em><b>Square</b></em>' reference feature.
@@ -905,27 +1082,51 @@ public interface GamePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PIECE__SQUARE = eINSTANCE.getPiece_Square();
+		EReference TOKEN__SQUARE = eINSTANCE.getToken_Square();
 
 		/**
-		 * The meta object literal for the '{@link com.esolution.games.connect4.model.game.impl.RedPieceImpl <em>Red Piece</em>}' class.
+		 * The meta object literal for the '<em><b>Get Side</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.esolution.games.connect4.model.game.impl.RedPieceImpl
-		 * @see com.esolution.games.connect4.model.game.impl.GamePackageImpl#getRedPiece()
 		 * @generated
 		 */
-		EClass RED_PIECE = eINSTANCE.getRedPiece();
+		EOperation TOKEN___GET_SIDE = eINSTANCE.getToken__GetSide();
 
 		/**
-		 * The meta object literal for the '{@link com.esolution.games.connect4.model.game.impl.YellowPieceImpl <em>Yellow Piece</em>}' class.
+		 * The meta object literal for the '<em><b>Get Opposite Side</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.esolution.games.connect4.model.game.impl.YellowPieceImpl
-		 * @see com.esolution.games.connect4.model.game.impl.GamePackageImpl#getYellowPiece()
 		 * @generated
 		 */
-		EClass YELLOW_PIECE = eINSTANCE.getYellowPiece();
+		EOperation TOKEN___GET_OPPOSITE_SIDE = eINSTANCE.getToken__GetOppositeSide();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Image File</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TOKEN___GET_IMAGE_FILE = eINSTANCE.getToken__GetImageFile();
+
+		/**
+		 * The meta object literal for the '{@link com.esolution.games.connect4.model.game.impl.RedTokenImpl <em>Red Token</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.esolution.games.connect4.model.game.impl.RedTokenImpl
+		 * @see com.esolution.games.connect4.model.game.impl.GamePackageImpl#getRedToken()
+		 * @generated
+		 */
+		EClass RED_TOKEN = eINSTANCE.getRedToken();
+
+		/**
+		 * The meta object literal for the '{@link com.esolution.games.connect4.model.game.impl.YellowTokenImpl <em>Yellow Token</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.esolution.games.connect4.model.game.impl.YellowTokenImpl
+		 * @see com.esolution.games.connect4.model.game.impl.GamePackageImpl#getYellowToken()
+		 * @generated
+		 */
+		EClass YELLOW_TOKEN = eINSTANCE.getYellowToken();
 
 		/**
 		 * The meta object literal for the '{@link com.esolution.games.connect4.model.game.impl.SquareImpl <em>Square</em>}' class.
@@ -954,12 +1155,28 @@ public interface GamePackage extends EPackage {
 		EAttribute SQUARE__COLUMN = eINSTANCE.getSquare_Column();
 
 		/**
+		 * The meta object literal for the '<em><b>Token</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SQUARE__TOKEN = eINSTANCE.getSquare_Token();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Image</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation SQUARE___GET_IMAGE = eINSTANCE.getSquare__GetImage();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Empty</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SQUARE___IS_EMPTY = eINSTANCE.getSquare__IsEmpty();
 
 		/**
 		 * The meta object literal for the '{@link com.esolution.games.connect4.model.game.impl.PlayerImpl <em>Player</em>}' class.
@@ -972,12 +1189,12 @@ public interface GamePackage extends EPackage {
 		EClass PLAYER = eINSTANCE.getPlayer();
 
 		/**
-		 * The meta object literal for the '<em><b>Pieces</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Tokens</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PLAYER__PIECES = eINSTANCE.getPlayer_Pieces();
+		EReference PLAYER__TOKENS = eINSTANCE.getPlayer_Tokens();
 
 		/**
 		 * The meta object literal for the '{@link com.esolution.games.connect4.model.game.impl.HumanPlayerImpl <em>Human Player</em>}' class.

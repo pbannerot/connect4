@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.esolution.games.connect4.model.game.Player#getPieces <em>Pieces</em>}</li>
+ *   <li>{@link com.esolution.games.connect4.model.game.Player#getTokens <em>Tokens</em>}</li>
  * </ul>
  *
  * @see com.esolution.games.connect4.model.game.GamePackage#getPlayer()
@@ -24,15 +24,15 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Player extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Pieces</b></em>' containment reference list.
-	 * The list contents are of type {@link com.esolution.games.connect4.model.game.Piece}.
+	 * Returns the value of the '<em><b>Tokens</b></em>' containment reference list.
+	 * The list contents are of type {@link com.esolution.games.connect4.model.game.Token}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pieces</em>' containment reference list.
-	 * @see com.esolution.games.connect4.model.game.GamePackage#getPlayer_Pieces()
+	 * @return the value of the '<em>Tokens</em>' containment reference list.
+	 * @see com.esolution.games.connect4.model.game.GamePackage#getPlayer_Tokens()
 	 * @model containment="true" upper="21"
 	 * @generated
 	 */
-	EList<Piece> getPieces();
+	EList<Token> getTokens();
 
 } // Player

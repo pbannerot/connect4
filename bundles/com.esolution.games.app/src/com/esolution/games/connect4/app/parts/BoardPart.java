@@ -4,7 +4,9 @@
 package com.esolution.games.connect4.app.parts;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -25,7 +27,11 @@ import org.eclipse.swt.widgets.Label;
 import com.esolution.games.connect4.model.game.Board;
 import com.esolution.games.connect4.model.game.Game;
 import com.esolution.games.connect4.model.game.GameFactory;
+import com.esolution.games.connect4.model.game.Player;
+import com.esolution.games.connect4.model.game.Side;
 import com.esolution.games.connect4.model.game.Square;
+import com.esolution.games.connect4.model.game.Team;
+import com.esolution.games.connect4.model.game.Token;
 
 /**
  * 
@@ -36,13 +42,34 @@ public class BoardPart {
 	private Game connect4Game;
 	private Board board;
 	private List<Label> squares;
+	private Map <Side, Player> players = new HashMap<Side, Player>();
+	private Side currentSide = Side.RED;
 	
 	public BoardPart() {
 		connect4Game = GameFactory.eINSTANCE.createGame();
 		board = GameFactory.eINSTANCE.createBoard();
 		connect4Game.setBoard(board);
 		
+		Team redTeam = GameFactory.eINSTANCE.createTeam();
+		redTeam.setSide(Side.RED);
+		Player redPlayer = GameFactory.eINSTANCE.createHumanPlayer();
+		redTeam.setPlayer(redPlayer);
+		connect4Game.getTeams().add(redTeam);
+		
+		Team yelloTeam = GameFactory.eINSTANCE.createTeam();
+		yelloTeam.setSide(Side.YELLOW);
+		Player yellowPlayer = GameFactory.eINSTANCE.createHumanPlayer();
+		yelloTeam.setPlayer(yellowPlayer);
+		connect4Game.getTeams().add(yelloTeam);
+
+		for (int tokenId = 0; tokenId < 21; tokenId ++) {
+			redPlayer.getTokens().add(GameFactory.eINSTANCE.createRedToken());
+			yellowPlayer.getTokens().add(GameFactory.eINSTANCE.createYellowToken());
+		}
+		
 		squares = new ArrayList<Label>();
+		players.put(Side.RED, redPlayer);
+		players.put(Side.YELLOW, yellowPlayer);
 	}
 
 	@PostConstruct
@@ -52,12 +79,11 @@ public class BoardPart {
 		parent.setLayout(new GridLayout(board.getNbColumn(), true));
 		parent.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_BLUE));
 		GridData gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
-		gridData.verticalSpan = board.getNbRow();
 		gridData.minimumHeight = 25;
 		gridData.minimumWidth = 25;
 		
-		for (int column = 0; column < board.getNbColumn(); column ++) {
-			for (int row = 0; row < board.getNbRow(); row ++) {
+		for (int row = 0; row < board.getNbRow(); row ++) {
+			for (int column = 0; column < board.getNbColumn(); column ++) {
 				Square square = GameFactory.eINSTANCE.createSquare();
 				square.setColumn(column);
 				square.setRow(row);
@@ -71,22 +97,32 @@ public class BoardPart {
 				label.setImage((Image) square.getImage());
 				
 				label.addMouseListener(new MouseListener() {
-					
 					@Override
 					public void mouseUp(MouseEvent e) {
 						logger.debug("mouseUp " + e);
+						logger.info(square.getColumn());
+						logger.info(square.getRow());
+						
+						Square availableSquare = board.getFirstAvailableSquare(square.getColumn());
+						if (availableSquare != null) {
+							Token token = currentSide.equals(Side.RED) ? GameFactory.eINSTANCE.createRedToken() : GameFactory.eINSTANCE.createYellowToken();
+							availableSquare.setToken(token);
+
+							currentSide = currentSide.equals(Side.RED) ? Side.YELLOW : Side.RED;
+							
+							setFocus();
+						}
+						logger.info(availableSquare);
 					}
 					
 					@Override
 					public void mouseDown(MouseEvent e) {
 						logger.debug("mouseDown " + e);
-						
 					}
 					
 					@Override
 					public void mouseDoubleClick(MouseEvent e) {
 						logger.debug("mouseDoubleClick " + e);
-						
 					}
 				});
 				
@@ -101,6 +137,8 @@ public class BoardPart {
 		
 		for (Label label : squares) {
 			Square square = (Square) label.getData();
+			label.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_BLUE));
+			label.setImage((Image) square.getImage());
 		}
 	}
 }

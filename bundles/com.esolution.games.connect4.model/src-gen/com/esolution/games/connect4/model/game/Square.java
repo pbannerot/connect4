@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.esolution.games.connect4.model.game.Square#getRow <em>Row</em>}</li>
  *   <li>{@link com.esolution.games.connect4.model.game.Square#getColumn <em>Column</em>}</li>
+ *   <li>{@link com.esolution.games.connect4.model.game.Square#getToken <em>Token</em>}</li>
  * </ul>
  *
  * @see com.esolution.games.connect4.model.game.GamePackage#getSquare()
@@ -68,10 +69,42 @@ public interface Square extends EObject {
 	void setColumn(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Token</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.esolution.games.connect4.model.game.Token#getSquare <em>Square</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Token</em>' reference.
+	 * @see #setToken(Token)
+	 * @see com.esolution.games.connect4.model.game.GamePackage#getSquare_Token()
+	 * @see com.esolution.games.connect4.model.game.Token#getSquare
+	 * @model opposite="square"
+	 * @generated
+	 */
+	Token getToken();
+
+	/**
+	 * Sets the value of the '{@link com.esolution.games.connect4.model.game.Square#getToken <em>Token</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Token</em>' reference.
+	 * @see #getToken()
+	 * @generated
+	 */
+	void setToken(Token value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
 	Object getImage();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isEmpty();
 } // Square

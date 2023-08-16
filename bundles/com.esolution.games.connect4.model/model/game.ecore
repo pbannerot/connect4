@@ -13,6 +13,9 @@
         eType="#//Player" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Board">
+    <eOperations name="getFirstAvailableSquare" eType="#//Square">
+      <eParameters name="column" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="squares" upperBound="-1"
         eType="#//Square" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nbRow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
@@ -20,24 +23,30 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nbColumn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="7"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Piece" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Token" abstract="true" interface="true">
+    <eOperations name="getSide" eType="#//Side"/>
+    <eOperations name="getOppositeSide" eType="#//Side"/>
+    <eOperations name="getImageFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="square" lowerBound="1"
-        eType="#//Square"/>
+        eType="#//Square" eOpposite="#//Square/token"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RedPiece" eSuperTypes="#//Piece"/>
-  <eClassifiers xsi:type="ecore:EClass" name="YellowPiece" eSuperTypes="#//Piece"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RedToken" eSuperTypes="#//Token"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YellowToken" eSuperTypes="#//Token"/>
   <eClassifiers xsi:type="ecore:EEnum" name="Side">
     <eLiterals name="YELLOW"/>
     <eLiterals name="RED" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Square">
     <eOperations name="getImage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eOperations name="isEmpty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="row" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="column" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="token" eType="#//Token"
+        eOpposite="#//Token/square"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Player" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pieces" upperBound="21"
-        eType="#//Piece" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tokens" upperBound="21"
+        eType="#//Token" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HumanPlayer" eSuperTypes="#//Player"/>
   <eClassifiers xsi:type="ecore:EClass" name="RandomPlayer" eSuperTypes="#//Player"/>

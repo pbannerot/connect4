@@ -3,13 +3,13 @@
   <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.window.main" selectedElement="_6wlLksgZEeSyMNYR5xypkQ" label="Connect4" width="800" height="600">
     <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.partsashcontainer.main" selectedElement="_CbCPkDhxEe6mUIYooEARZQ">
       <children xsi:type="basic:PartSashContainer" xmi:id="_CbCPkDhxEe6mUIYooEARZQ" elementId="com.esolution.games.connect4.app.partsashcontainer.top" selectedElement="_GwraIDhxEe6mUIYooEARZQ" horizontal="true">
-        <children xsi:type="basic:PartStack" xmi:id="_ErBVMDhxEe6mUIYooEARZQ" elementId="com.esolution.games.connect4.app.partstack.yellow">
+        <children xsi:type="basic:PartStack" xmi:id="_ErBVMDhxEe6mUIYooEARZQ" elementId="com.esolution.games.connect4.app.partstack.yellow" containerData="2">
           <children xsi:type="basic:Part" xmi:id="_FFuUMDhxEe6mUIYooEARZQ" elementId="com.esolution.games.connect4.app.part.yellow" label="Yellow"/>
         </children>
-        <children xsi:type="basic:PartStack" xmi:id="_GwraIDhxEe6mUIYooEARZQ" elementId="com.esolution.games.connect4.app.partstack.board" selectedElement="_HRfoMDhxEe6mUIYooEARZQ">
+        <children xsi:type="basic:PartStack" xmi:id="_GwraIDhxEe6mUIYooEARZQ" elementId="com.esolution.games.connect4.app.partstack.board" containerData="7" selectedElement="_HRfoMDhxEe6mUIYooEARZQ">
           <children xsi:type="basic:Part" xmi:id="_HRfoMDhxEe6mUIYooEARZQ" elementId="com.esolution.games.connect4.app.part.board" contributionURI="bundleclass://com.esolution.games.connect4.app/com.esolution.games.connect4.app.parts.BoardPart" label="Board"/>
         </children>
-        <children xsi:type="basic:PartStack" xmi:id="_IAYugDhxEe6mUIYooEARZQ" elementId="com.esolution.games.connect4.app.partstack.red">
+        <children xsi:type="basic:PartStack" xmi:id="_IAYugDhxEe6mUIYooEARZQ" elementId="com.esolution.games.connect4.app.partstack.red" containerData="2">
           <children xsi:type="basic:Part" xmi:id="_J8i5MDhxEe6mUIYooEARZQ" elementId="com.esolution.games.connect4.app.part.red" label="Red"/>
         </children>
       </children>

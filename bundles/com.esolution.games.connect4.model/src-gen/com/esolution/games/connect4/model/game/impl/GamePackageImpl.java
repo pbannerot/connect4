@@ -8,15 +8,14 @@ import com.esolution.games.connect4.model.game.Game;
 import com.esolution.games.connect4.model.game.GameFactory;
 import com.esolution.games.connect4.model.game.GamePackage;
 import com.esolution.games.connect4.model.game.HumanPlayer;
-import com.esolution.games.connect4.model.game.Piece;
 import com.esolution.games.connect4.model.game.Player;
 import com.esolution.games.connect4.model.game.RandomPlayer;
-import com.esolution.games.connect4.model.game.RedPiece;
+import com.esolution.games.connect4.model.game.RedToken;
 import com.esolution.games.connect4.model.game.Side;
 import com.esolution.games.connect4.model.game.Square;
 import com.esolution.games.connect4.model.game.Team;
-import com.esolution.games.connect4.model.game.YellowPiece;
-
+import com.esolution.games.connect4.model.game.Token;
+import com.esolution.games.connect4.model.game.YellowToken;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -59,21 +58,21 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass pieceEClass = null;
+	private EClass tokenEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass redPieceEClass = null;
+	private EClass redTokenEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yellowPieceEClass = null;
+	private EClass yellowTokenEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -276,8 +275,8 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPiece() {
-		return pieceEClass;
+	public EOperation getBoard__GetFirstAvailableSquare__int() {
+		return boardEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -285,8 +284,8 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPiece_Square() {
-		return (EReference) pieceEClass.getEStructuralFeatures().get(0);
+	public EClass getToken() {
+		return tokenEClass;
 	}
 
 	/**
@@ -294,8 +293,8 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRedPiece() {
-		return redPieceEClass;
+	public EReference getToken_Square() {
+		return (EReference) tokenEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -303,8 +302,44 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYellowPiece() {
-		return yellowPieceEClass;
+	public EOperation getToken__GetSide() {
+		return tokenEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getToken__GetOppositeSide() {
+		return tokenEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getToken__GetImageFile() {
+		return tokenEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRedToken() {
+		return redTokenEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYellowToken() {
+		return yellowTokenEClass;
 	}
 
 	/**
@@ -339,8 +374,26 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSquare_Token() {
+		return (EReference) squareEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getSquare__GetImage() {
 		return squareEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSquare__IsEmpty() {
+		return squareEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -357,7 +410,7 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPlayer_Pieces() {
+	public EReference getPlayer_Tokens() {
 		return (EReference) playerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -438,21 +491,27 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 		createEReference(boardEClass, BOARD__SQUARES);
 		createEAttribute(boardEClass, BOARD__NB_ROW);
 		createEAttribute(boardEClass, BOARD__NB_COLUMN);
+		createEOperation(boardEClass, BOARD___GET_FIRST_AVAILABLE_SQUARE__INT);
 
-		pieceEClass = createEClass(PIECE);
-		createEReference(pieceEClass, PIECE__SQUARE);
+		tokenEClass = createEClass(TOKEN);
+		createEReference(tokenEClass, TOKEN__SQUARE);
+		createEOperation(tokenEClass, TOKEN___GET_SIDE);
+		createEOperation(tokenEClass, TOKEN___GET_OPPOSITE_SIDE);
+		createEOperation(tokenEClass, TOKEN___GET_IMAGE_FILE);
 
-		redPieceEClass = createEClass(RED_PIECE);
+		redTokenEClass = createEClass(RED_TOKEN);
 
-		yellowPieceEClass = createEClass(YELLOW_PIECE);
+		yellowTokenEClass = createEClass(YELLOW_TOKEN);
 
 		squareEClass = createEClass(SQUARE);
 		createEAttribute(squareEClass, SQUARE__ROW);
 		createEAttribute(squareEClass, SQUARE__COLUMN);
+		createEReference(squareEClass, SQUARE__TOKEN);
 		createEOperation(squareEClass, SQUARE___GET_IMAGE);
+		createEOperation(squareEClass, SQUARE___IS_EMPTY);
 
 		playerEClass = createEClass(PLAYER);
-		createEReference(playerEClass, PLAYER__PIECES);
+		createEReference(playerEClass, PLAYER__TOKENS);
 
 		humanPlayerEClass = createEClass(HUMAN_PLAYER);
 
@@ -493,8 +552,8 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		redPieceEClass.getESuperTypes().add(this.getPiece());
-		yellowPieceEClass.getESuperTypes().add(this.getPiece());
+		redTokenEClass.getESuperTypes().add(this.getToken());
+		yellowTokenEClass.getESuperTypes().add(this.getToken());
 		humanPlayerEClass.getESuperTypes().add(this.getPlayer());
 		randomPlayerEClass.getESuperTypes().add(this.getPlayer());
 		aiPlayerEClass.getESuperTypes().add(this.getPlayer());
@@ -524,15 +583,26 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 		initEAttribute(getBoard_NbColumn(), ecorePackage.getEInt(), "nbColumn", "7", 0, 1, Board.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(pieceEClass, Piece.class, "Piece", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPiece_Square(), this.getSquare(), null, "square", null, 1, 1, Piece.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+		EOperation op = initEOperation(getBoard__GetFirstAvailableSquare__int(), this.getSquare(),
+				"getFirstAvailableSquare", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "column", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(tokenEClass, Token.class, "Token", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getToken_Square(), this.getSquare(), this.getSquare_Token(), "square", null, 1, 1, Token.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getToken__GetSide(), this.getSide(), "getSide", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getToken__GetOppositeSide(), this.getSide(), "getOppositeSide", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getToken__GetImageFile(), ecorePackage.getEString(), "getImageFile", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
 
-		initEClass(redPieceEClass, RedPiece.class, "RedPiece", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(redTokenEClass, RedToken.class, "RedToken", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yellowPieceEClass, YellowPiece.class, "YellowPiece", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(yellowTokenEClass, YellowToken.class, "YellowToken", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(squareEClass, Square.class, "Square", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -540,11 +610,16 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSquare_Column(), ecorePackage.getEInt(), "column", null, 0, 1, Square.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSquare_Token(), this.getToken(), this.getToken_Square(), "token", null, 0, 1, Square.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getSquare__GetImage(), ecorePackage.getEJavaObject(), "getImage", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getSquare__IsEmpty(), ecorePackage.getEBoolean(), "isEmpty", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(playerEClass, Player.class, "Player", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlayer_Pieces(), this.getPiece(), null, "pieces", null, 0, 21, Player.class, !IS_TRANSIENT,
+		initEReference(getPlayer_Tokens(), this.getToken(), null, "tokens", null, 0, 21, Player.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 

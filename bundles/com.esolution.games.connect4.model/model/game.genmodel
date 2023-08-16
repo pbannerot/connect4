@@ -26,19 +26,27 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference game.ecore#//Board/squares"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute game.ecore#//Board/nbRow"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute game.ecore#//Board/nbColumn"/>
+      <genOperations ecoreOperation="game.ecore#//Board/getFirstAvailableSquare">
+        <genParameters ecoreParameter="game.ecore#//Board/getFirstAvailableSquare/column"/>
+      </genOperations>
     </genClasses>
-    <genClasses ecoreClass="game.ecore#//Piece">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference game.ecore#//Piece/square"/>
+    <genClasses ecoreClass="game.ecore#//Token">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference game.ecore#//Token/square"/>
+      <genOperations ecoreOperation="game.ecore#//Token/getSide"/>
+      <genOperations ecoreOperation="game.ecore#//Token/getOppositeSide"/>
+      <genOperations ecoreOperation="game.ecore#//Token/getImageFile"/>
     </genClasses>
-    <genClasses ecoreClass="game.ecore#//RedPiece"/>
-    <genClasses ecoreClass="game.ecore#//YellowPiece"/>
+    <genClasses ecoreClass="game.ecore#//RedToken"/>
+    <genClasses ecoreClass="game.ecore#//YellowToken"/>
     <genClasses ecoreClass="game.ecore#//Square">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute game.ecore#//Square/row"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute game.ecore#//Square/column"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference game.ecore#//Square/token"/>
       <genOperations ecoreOperation="game.ecore#//Square/getImage"/>
+      <genOperations ecoreOperation="game.ecore#//Square/isEmpty"/>
     </genClasses>
     <genClasses ecoreClass="game.ecore#//Player">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference game.ecore#//Player/pieces"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference game.ecore#//Player/tokens"/>
     </genClasses>
     <genClasses ecoreClass="game.ecore#//HumanPlayer"/>
     <genClasses ecoreClass="game.ecore#//RandomPlayer"/>

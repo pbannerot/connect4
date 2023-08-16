@@ -87,27 +87,27 @@ public class GameSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case GamePackage.PIECE: {
-			Piece piece = (Piece) theEObject;
-			T result = casePiece(piece);
+		case GamePackage.TOKEN: {
+			Token token = (Token) theEObject;
+			T result = caseToken(token);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case GamePackage.RED_PIECE: {
-			RedPiece redPiece = (RedPiece) theEObject;
-			T result = caseRedPiece(redPiece);
+		case GamePackage.RED_TOKEN: {
+			RedToken redToken = (RedToken) theEObject;
+			T result = caseRedToken(redToken);
 			if (result == null)
-				result = casePiece(redPiece);
+				result = caseToken(redToken);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case GamePackage.YELLOW_PIECE: {
-			YellowPiece yellowPiece = (YellowPiece) theEObject;
-			T result = caseYellowPiece(yellowPiece);
+		case GamePackage.YELLOW_TOKEN: {
+			YellowToken yellowToken = (YellowToken) theEObject;
+			T result = caseYellowToken(yellowToken);
 			if (result == null)
-				result = casePiece(yellowPiece);
+				result = caseToken(yellowToken);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -204,47 +204,47 @@ public class GameSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Piece</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Token</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Piece</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Token</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePiece(Piece object) {
+	public T caseToken(Token object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Red Piece</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Red Token</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Red Piece</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Red Token</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRedPiece(RedPiece object) {
+	public T caseRedToken(RedToken object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Yellow Piece</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Yellow Token</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Yellow Piece</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Yellow Token</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYellowPiece(YellowPiece object) {
+	public T caseYellowToken(YellowToken object) {
 		return null;
 	}
 

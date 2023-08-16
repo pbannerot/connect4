@@ -49,22 +49,22 @@ public interface GameFactory extends EFactory {
 	Board createBoard();
 
 	/**
-	 * Returns a new object of class '<em>Red Piece</em>'.
+	 * Returns a new object of class '<em>Red Token</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Red Piece</em>'.
+	 * @return a new object of class '<em>Red Token</em>'.
 	 * @generated
 	 */
-	RedPiece createRedPiece();
+	RedToken createRedToken();
 
 	/**
-	 * Returns a new object of class '<em>Yellow Piece</em>'.
+	 * Returns a new object of class '<em>Yellow Token</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Yellow Piece</em>'.
+	 * @return a new object of class '<em>Yellow Token</em>'.
 	 * @generated
 	 */
-	YellowPiece createYellowPiece();
+	YellowToken createYellowToken();
 
 	/**
 	 * Returns a new object of class '<em>Square</em>'.

@@ -83,4 +83,12 @@ public interface Board extends EObject {
 	 */
 	void setNbColumn(int value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Square getFirstAvailableSquare(int column);
+
 } // Board

@@ -6,6 +6,7 @@ import com.esolution.games.connect4.model.game.Board;
 import com.esolution.games.connect4.model.game.GamePackage;
 import com.esolution.games.connect4.model.game.Square;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -164,6 +165,24 @@ public class BoardImpl extends MinimalEObjectImpl.Container implements Board {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Square getFirstAvailableSquare(int column) {
+		Square availableSquare = null;
+
+		for (Square square : squares) {
+			if (square.getColumn() == column) {
+				if (square.isEmpty()) {
+					availableSquare = square;
+				}
+			}
+		}
+		return availableSquare;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -253,6 +272,20 @@ public class BoardImpl extends MinimalEObjectImpl.Container implements Board {
 			return nbColumn != NB_COLUMN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case GamePackage.BOARD___GET_FIRST_AVAILABLE_SQUARE__INT:
+			return getFirstAvailableSquare((Integer) arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

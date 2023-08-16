@@ -3,9 +3,9 @@
 package com.esolution.games.connect4.model.game.impl;
 
 import com.esolution.games.connect4.model.game.GamePackage;
-import com.esolution.games.connect4.model.game.Piece;
 import com.esolution.games.connect4.model.game.Player;
 
+import com.esolution.games.connect4.model.game.Token;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -28,21 +28,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.esolution.games.connect4.model.game.impl.PlayerImpl#getPieces <em>Pieces</em>}</li>
+ *   <li>{@link com.esolution.games.connect4.model.game.impl.PlayerImpl#getTokens <em>Tokens</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 	/**
-	 * The cached value of the '{@link #getPieces() <em>Pieces</em>}' containment reference list.
+	 * The cached value of the '{@link #getTokens() <em>Tokens</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPieces()
+	 * @see #getTokens()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Piece> pieces;
+	protected EList<Token> tokens;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,11 +68,11 @@ public abstract class PlayerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Piece> getPieces() {
-		if (pieces == null) {
-			pieces = new EObjectContainmentEList<Piece>(Piece.class, this, GamePackage.PLAYER__PIECES);
+	public EList<Token> getTokens() {
+		if (tokens == null) {
+			tokens = new EObjectContainmentEList<Token>(Token.class, this, GamePackage.PLAYER__TOKENS);
 		}
-		return pieces;
+		return tokens;
 	}
 
 	/**
@@ -83,8 +83,8 @@ public abstract class PlayerImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case GamePackage.PLAYER__PIECES:
-			return ((InternalEList<?>) getPieces()).basicRemove(otherEnd, msgs);
+		case GamePackage.PLAYER__TOKENS:
+			return ((InternalEList<?>) getTokens()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,8 +97,8 @@ public abstract class PlayerImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case GamePackage.PLAYER__PIECES:
-			return getPieces();
+		case GamePackage.PLAYER__TOKENS:
+			return getTokens();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,9 +112,9 @@ public abstract class PlayerImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case GamePackage.PLAYER__PIECES:
-			getPieces().clear();
-			getPieces().addAll((Collection<? extends Piece>) newValue);
+		case GamePackage.PLAYER__TOKENS:
+			getTokens().clear();
+			getTokens().addAll((Collection<? extends Token>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -128,8 +128,8 @@ public abstract class PlayerImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case GamePackage.PLAYER__PIECES:
-			getPieces().clear();
+		case GamePackage.PLAYER__TOKENS:
+			getTokens().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -143,8 +143,8 @@ public abstract class PlayerImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case GamePackage.PLAYER__PIECES:
-			return pieces != null && !pieces.isEmpty();
+		case GamePackage.PLAYER__TOKENS:
+			return tokens != null && !tokens.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

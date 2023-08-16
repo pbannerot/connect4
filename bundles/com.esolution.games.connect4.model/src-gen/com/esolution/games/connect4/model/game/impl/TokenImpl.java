@@ -3,8 +3,8 @@
 package com.esolution.games.connect4.model.game.impl;
 
 import com.esolution.games.connect4.model.game.GamePackage;
-import com.esolution.games.connect4.model.game.Piece;
 import com.esolution.games.connect4.model.game.Square;
+import com.esolution.games.connect4.model.game.Token;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -16,18 +16,18 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Piece</b></em>'.
+ * An implementation of the model object '<em><b>Token</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.esolution.games.connect4.model.game.impl.PieceImpl#getSquare <em>Square</em>}</li>
+ *   <li>{@link com.esolution.games.connect4.model.game.impl.TokenImpl#getSquare <em>Square</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class PieceImpl extends MinimalEObjectImpl.Container implements Piece {
+public abstract class TokenImpl extends MinimalEObjectImpl.Container implements Token {
 	/**
 	 * The cached value of the '{@link #getSquare() <em>Square</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -43,7 +43,7 @@ public abstract class PieceImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PieceImpl() {
+	protected TokenImpl() {
 		super();
 	}
 
@@ -54,7 +54,7 @@ public abstract class PieceImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return GamePackage.Literals.PIECE;
+		return GamePackage.Literals.TOKEN;
 	}
 
 	/**
@@ -68,7 +68,7 @@ public abstract class PieceImpl extends MinimalEObjectImpl.Container implements 
 			square = (Square) eResolveProxy(oldSquare);
 			if (square != oldSquare) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GamePackage.PIECE__SQUARE, oldSquare,
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GamePackage.TOKEN__SQUARE, oldSquare,
 							square));
 			}
 		}
@@ -93,7 +93,7 @@ public abstract class PieceImpl extends MinimalEObjectImpl.Container implements 
 		Square oldSquare = square;
 		square = newSquare;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GamePackage.PIECE__SQUARE, oldSquare, square));
+			eNotify(new ENotificationImpl(this, Notification.SET, GamePackage.TOKEN__SQUARE, oldSquare, square));
 	}
 
 	/**
@@ -104,7 +104,7 @@ public abstract class PieceImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case GamePackage.PIECE__SQUARE:
+		case GamePackage.TOKEN__SQUARE:
 			if (resolve)
 				return getSquare();
 			return basicGetSquare();
@@ -120,7 +120,7 @@ public abstract class PieceImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case GamePackage.PIECE__SQUARE:
+		case GamePackage.TOKEN__SQUARE:
 			setSquare((Square) newValue);
 			return;
 		}
@@ -135,7 +135,7 @@ public abstract class PieceImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case GamePackage.PIECE__SQUARE:
+		case GamePackage.TOKEN__SQUARE:
 			setSquare((Square) null);
 			return;
 		}
@@ -150,10 +150,10 @@ public abstract class PieceImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case GamePackage.PIECE__SQUARE:
+		case GamePackage.TOKEN__SQUARE:
 			return square != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //PieceImpl
+} //TokenImpl

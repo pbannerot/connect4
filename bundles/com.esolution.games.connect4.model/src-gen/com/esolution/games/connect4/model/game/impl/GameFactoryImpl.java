@@ -62,10 +62,10 @@ public class GameFactoryImpl extends EFactoryImpl implements GameFactory {
 			return createTeam();
 		case GamePackage.BOARD:
 			return createBoard();
-		case GamePackage.RED_PIECE:
-			return createRedPiece();
-		case GamePackage.YELLOW_PIECE:
-			return createYellowPiece();
+		case GamePackage.RED_TOKEN:
+			return createRedToken();
+		case GamePackage.YELLOW_TOKEN:
+			return createYellowToken();
 		case GamePackage.SQUARE:
 			return createSquare();
 		case GamePackage.HUMAN_PLAYER:
@@ -144,9 +144,9 @@ public class GameFactoryImpl extends EFactoryImpl implements GameFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RedPiece createRedPiece() {
-		RedPieceImpl redPiece = new RedPieceImpl();
-		return redPiece;
+	public RedToken createRedToken() {
+		RedTokenImpl redToken = new RedTokenImpl();
+		return redToken;
 	}
 
 	/**
@@ -154,9 +154,9 @@ public class GameFactoryImpl extends EFactoryImpl implements GameFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YellowPiece createYellowPiece() {
-		YellowPieceImpl yellowPiece = new YellowPieceImpl();
-		return yellowPiece;
+	public YellowToken createYellowToken() {
+		YellowTokenImpl yellowToken = new YellowTokenImpl();
+		return yellowToken;
 	}
 
 	/**

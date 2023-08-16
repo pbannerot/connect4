@@ -82,18 +82,18 @@ public class GameAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter casePiece(Piece object) {
-			return createPieceAdapter();
+		public Adapter caseToken(Token object) {
+			return createTokenAdapter();
 		}
 
 		@Override
-		public Adapter caseRedPiece(RedPiece object) {
-			return createRedPieceAdapter();
+		public Adapter caseRedToken(RedToken object) {
+			return createRedTokenAdapter();
 		}
 
 		@Override
-		public Adapter caseYellowPiece(YellowPiece object) {
-			return createYellowPieceAdapter();
+		public Adapter caseYellowToken(YellowToken object) {
+			return createYellowTokenAdapter();
 		}
 
 		@Override
@@ -183,44 +183,44 @@ public class GameAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.esolution.games.connect4.model.game.Piece <em>Piece</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.esolution.games.connect4.model.game.Token <em>Token</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.esolution.games.connect4.model.game.Piece
+	 * @see com.esolution.games.connect4.model.game.Token
 	 * @generated
 	 */
-	public Adapter createPieceAdapter() {
+	public Adapter createTokenAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.esolution.games.connect4.model.game.RedPiece <em>Red Piece</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.esolution.games.connect4.model.game.RedToken <em>Red Token</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.esolution.games.connect4.model.game.RedPiece
+	 * @see com.esolution.games.connect4.model.game.RedToken
 	 * @generated
 	 */
-	public Adapter createRedPieceAdapter() {
+	public Adapter createRedTokenAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.esolution.games.connect4.model.game.YellowPiece <em>Yellow Piece</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.esolution.games.connect4.model.game.YellowToken <em>Yellow Token</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.esolution.games.connect4.model.game.YellowPiece
+	 * @see com.esolution.games.connect4.model.game.YellowToken
 	 * @generated
 	 */
-	public Adapter createYellowPieceAdapter() {
+	public Adapter createYellowTokenAdapter() {
 		return null;
 	}
 
