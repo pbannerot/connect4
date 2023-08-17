@@ -16,6 +16,15 @@
     <eOperations name="getFirstAvailableSquare" eType="#//Square">
       <eParameters name="column" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
+    <eOperations name="getAdjacentSquare" eType="#//Square">
+      <eParameters name="sourceSquare" eType="#//Square"/>
+      <eParameters name="columnOffset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="rowOffset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="getSquare" eType="#//Square">
+      <eParameters name="column" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="row" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="squares" upperBound="-1"
         eType="#//Square" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nbRow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"

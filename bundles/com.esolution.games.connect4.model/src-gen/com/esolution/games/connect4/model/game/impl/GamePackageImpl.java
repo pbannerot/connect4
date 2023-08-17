@@ -284,6 +284,24 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getBoard__GetAdjacentSquare__Square_int_int() {
+		return boardEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBoard__GetSquare__int_int() {
+		return boardEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getToken() {
 		return tokenEClass;
 	}
@@ -492,6 +510,8 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 		createEAttribute(boardEClass, BOARD__NB_ROW);
 		createEAttribute(boardEClass, BOARD__NB_COLUMN);
 		createEOperation(boardEClass, BOARD___GET_FIRST_AVAILABLE_SQUARE__INT);
+		createEOperation(boardEClass, BOARD___GET_ADJACENT_SQUARE__SQUARE_INT_INT);
+		createEOperation(boardEClass, BOARD___GET_SQUARE__INT_INT);
 
 		tokenEClass = createEClass(TOKEN);
 		createEReference(tokenEClass, TOKEN__SQUARE);
@@ -586,6 +606,16 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 		EOperation op = initEOperation(getBoard__GetFirstAvailableSquare__int(), this.getSquare(),
 				"getFirstAvailableSquare", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "column", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getBoard__GetAdjacentSquare__Square_int_int(), this.getSquare(), "getAdjacentSquare", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getSquare(), "sourceSquare", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "columnOffset", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "rowOffset", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getBoard__GetSquare__int_int(), this.getSquare(), "getSquare", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "column", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "row", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(tokenEClass, Token.class, "Token", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getToken_Square(), this.getSquare(), this.getSquare_Token(), "square", null, 1, 1, Token.class,

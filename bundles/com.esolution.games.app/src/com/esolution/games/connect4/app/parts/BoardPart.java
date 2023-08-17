@@ -9,11 +9,15 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.DisposeEvent;
+import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.graphics.Image;
@@ -44,6 +48,8 @@ public class BoardPart {
 	private List<Label> squares;
 	private Map <Side, Player> players = new HashMap<Side, Player>();
 	private Side currentSide = Side.RED;
+	
+	@Inject MPart boardPart;
 	
 	public BoardPart() {
 		connect4Game = GameFactory.eINSTANCE.createGame();
@@ -100,8 +106,6 @@ public class BoardPart {
 					@Override
 					public void mouseUp(MouseEvent e) {
 						logger.debug("mouseUp " + e);
-						logger.info(square.getColumn());
-						logger.info(square.getRow());
 						
 						Square availableSquare = board.getFirstAvailableSquare(square.getColumn());
 						if (availableSquare != null) {
@@ -111,8 +115,8 @@ public class BoardPart {
 							currentSide = currentSide.equals(Side.RED) ? Side.YELLOW : Side.RED;
 							
 							setFocus();
+//							((Resource) availableSquare.getImage()).dispose();
 						}
-						logger.info(availableSquare);
 					}
 					
 					@Override
@@ -123,6 +127,16 @@ public class BoardPart {
 					@Override
 					public void mouseDoubleClick(MouseEvent e) {
 						logger.debug("mouseDoubleClick " + e);
+					}
+				});
+				
+				label.addDisposeListener(new DisposeListener() {
+					
+					@Override
+					public void widgetDisposed(DisposeEvent e) {
+						logger.debug("widgetDisposed " + e);
+						
+						((Label) e.getSource()).getImage().dispose();
 					}
 				});
 				
@@ -137,6 +151,7 @@ public class BoardPart {
 		
 		for (Label label : squares) {
 			Square square = (Square) label.getData();
+			label.getImage().dispose();
 			label.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_BLUE));
 			label.setImage((Image) square.getImage());
 		}

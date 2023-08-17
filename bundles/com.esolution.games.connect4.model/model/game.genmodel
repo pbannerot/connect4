@@ -29,6 +29,15 @@
       <genOperations ecoreOperation="game.ecore#//Board/getFirstAvailableSquare">
         <genParameters ecoreParameter="game.ecore#//Board/getFirstAvailableSquare/column"/>
       </genOperations>
+      <genOperations ecoreOperation="game.ecore#//Board/getAdjacentSquare">
+        <genParameters ecoreParameter="game.ecore#//Board/getAdjacentSquare/sourceSquare"/>
+        <genParameters ecoreParameter="game.ecore#//Board/getAdjacentSquare/columnOffset"/>
+        <genParameters ecoreParameter="game.ecore#//Board/getAdjacentSquare/rowOffset"/>
+      </genOperations>
+      <genOperations ecoreOperation="game.ecore#//Board/getSquare">
+        <genParameters ecoreParameter="game.ecore#//Board/getSquare/column"/>
+        <genParameters ecoreParameter="game.ecore#//Board/getSquare/row"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="game.ecore#//Token">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference game.ecore#//Token/square"/>

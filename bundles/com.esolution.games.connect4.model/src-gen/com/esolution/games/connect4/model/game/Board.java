@@ -91,4 +91,20 @@ public interface Board extends EObject {
 	 */
 	Square getFirstAvailableSquare(int column);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Square getAdjacentSquare(Square sourceSquare, int columnOffset, int rowOffset);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Square getSquare(int column, int row);
+
 } // Board

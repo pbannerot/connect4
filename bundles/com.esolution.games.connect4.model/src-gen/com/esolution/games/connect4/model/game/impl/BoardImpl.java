@@ -183,6 +183,42 @@ public class BoardImpl extends MinimalEObjectImpl.Container implements Board {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Square getAdjacentSquare(Square sourceSquare, int columnOffset, int rowOffset) {
+		
+		int targetColumn = sourceSquare.getColumn() + columnOffset;
+		int targetRow = sourceSquare.getRow() + rowOffset;
+		
+		if (targetColumn < 0 || targetColumn > getNbColumn())
+			return null;
+		
+		if (targetRow < 0 || targetRow > getNbRow())
+			return null;
+
+		return getSquare(targetColumn, targetRow);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Square getSquare(int column, int row) {
+		Square targetSquare = null;
+		
+		for (Square square : squares) {
+			if (square.getColumn() == column && square.getRow() == row) {
+				targetSquare = square;
+			}
+		}
+		
+		return targetSquare;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -284,6 +320,10 @@ public class BoardImpl extends MinimalEObjectImpl.Container implements Board {
 		switch (operationID) {
 		case GamePackage.BOARD___GET_FIRST_AVAILABLE_SQUARE__INT:
 			return getFirstAvailableSquare((Integer) arguments.get(0));
+		case GamePackage.BOARD___GET_ADJACENT_SQUARE__SQUARE_INT_INT:
+			return getAdjacentSquare((Square) arguments.get(0), (Integer) arguments.get(1), (Integer) arguments.get(2));
+		case GamePackage.BOARD___GET_SQUARE__INT_INT:
+			return getSquare((Integer) arguments.get(0), (Integer) arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

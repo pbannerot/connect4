@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Core
+Bundle-SymbolicName: com.esolution.games.connect4.core
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.esolution.games.connect4.core.Activator
+Bundle-Vendor: ESOLUTION
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-18
+Automatic-Module-Name: com.esolution.games.connect4.core
+Bundle-ActivationPolicy: lazy
