@@ -161,22 +161,13 @@ public interface GamePackage extends EPackage {
 	int BOARD = 2;
 
 	/**
-	 * The feature id for the '<em><b>Squares</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOARD__SQUARES = 0;
-
-	/**
 	 * The feature id for the '<em><b>Nb Row</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD__NB_ROW = 1;
+	int BOARD__NB_ROW = 0;
 
 	/**
 	 * The feature id for the '<em><b>Nb Column</b></em>' attribute.
@@ -185,7 +176,16 @@ public interface GamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD__NB_COLUMN = 2;
+	int BOARD__NB_COLUMN = 1;
+
+	/**
+	 * The feature id for the '<em><b>Squares</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD__SQUARES = 2;
 
 	/**
 	 * The number of structural features of the '<em>Board</em>' class.
@@ -206,22 +206,13 @@ public interface GamePackage extends EPackage {
 	int BOARD___GET_FIRST_AVAILABLE_SQUARE__INT = 0;
 
 	/**
-	 * The operation id for the '<em>Get Adjacent Square</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOARD___GET_ADJACENT_SQUARE__SQUARE_INT_INT = 1;
-
-	/**
 	 * The operation id for the '<em>Get Square</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD___GET_SQUARE__INT_INT = 2;
+	int BOARD___GET_SQUARE__INT_INT = 1;
 
 	/**
 	 * The number of operations of the '<em>Board</em>' class.
@@ -230,7 +221,7 @@ public interface GamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_OPERATION_COUNT = 3;
+	int BOARD_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.esolution.games.connect4.model.game.Token <em>Token</em>}' class.
@@ -462,13 +453,22 @@ public interface GamePackage extends EPackage {
 	int SQUARE__TOKEN = 2;
 
 	/**
+	 * The feature id for the '<em><b>Board</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SQUARE__BOARD = 3;
+
+	/**
 	 * The number of structural features of the '<em>Square</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SQUARE_FEATURE_COUNT = 3;
+	int SQUARE_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Get Image</em>' operation.
@@ -489,13 +489,22 @@ public interface GamePackage extends EPackage {
 	int SQUARE___IS_EMPTY = 1;
 
 	/**
+	 * The operation id for the '<em>Get Adjacent Square</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SQUARE___GET_ADJACENT_SQUARE__INT_INT = 2;
+
+	/**
 	 * The number of operations of the '<em>Square</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SQUARE_OPERATION_COUNT = 2;
+	int SQUARE_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.esolution.games.connect4.model.game.impl.PlayerImpl <em>Player</em>}' class.
@@ -730,10 +739,10 @@ public interface GamePackage extends EPackage {
 	EClass getBoard();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.esolution.games.connect4.model.game.Board#getSquares <em>Squares</em>}'.
+	 * Returns the meta object for the reference list '{@link com.esolution.games.connect4.model.game.Board#getSquares <em>Squares</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Squares</em>'.
+	 * @return the meta object for the reference list '<em>Squares</em>'.
 	 * @see com.esolution.games.connect4.model.game.Board#getSquares()
 	 * @see #getBoard()
 	 * @generated
@@ -771,16 +780,6 @@ public interface GamePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getBoard__GetFirstAvailableSquare__int();
-
-	/**
-	 * Returns the meta object for the '{@link com.esolution.games.connect4.model.game.Board#getAdjacentSquare(com.esolution.games.connect4.model.game.Square, int, int) <em>Get Adjacent Square</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Adjacent Square</em>' operation.
-	 * @see com.esolution.games.connect4.model.game.Board#getAdjacentSquare(com.esolution.games.connect4.model.game.Square, int, int)
-	 * @generated
-	 */
-	EOperation getBoard__GetAdjacentSquare__Square_int_int();
 
 	/**
 	 * Returns the meta object for the '{@link com.esolution.games.connect4.model.game.Board#getSquare(int, int) <em>Get Square</em>}' operation.
@@ -907,6 +906,17 @@ public interface GamePackage extends EPackage {
 	EReference getSquare_Token();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.esolution.games.connect4.model.game.Square#getBoard <em>Board</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Board</em>'.
+	 * @see com.esolution.games.connect4.model.game.Square#getBoard()
+	 * @see #getSquare()
+	 * @generated
+	 */
+	EReference getSquare_Board();
+
+	/**
 	 * Returns the meta object for the '{@link com.esolution.games.connect4.model.game.Square#getImage() <em>Get Image</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -925,6 +935,16 @@ public interface GamePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSquare__IsEmpty();
+
+	/**
+	 * Returns the meta object for the '{@link com.esolution.games.connect4.model.game.Square#getAdjacentSquare(int, int) <em>Get Adjacent Square</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Adjacent Square</em>' operation.
+	 * @see com.esolution.games.connect4.model.game.Square#getAdjacentSquare(int, int)
+	 * @generated
+	 */
+	EOperation getSquare__GetAdjacentSquare__int_int();
 
 	/**
 	 * Returns the meta object for class '{@link com.esolution.games.connect4.model.game.Player <em>Player</em>}'.
@@ -1073,7 +1093,7 @@ public interface GamePackage extends EPackage {
 		EClass BOARD = eINSTANCE.getBoard();
 
 		/**
-		 * The meta object literal for the '<em><b>Squares</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Squares</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1103,15 +1123,6 @@ public interface GamePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation BOARD___GET_FIRST_AVAILABLE_SQUARE__INT = eINSTANCE.getBoard__GetFirstAvailableSquare__int();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Adjacent Square</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation BOARD___GET_ADJACENT_SQUARE__SQUARE_INT_INT = eINSTANCE
-				.getBoard__GetAdjacentSquare__Square_int_int();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Square</b></em>' operation.
@@ -1218,6 +1229,14 @@ public interface GamePackage extends EPackage {
 		EReference SQUARE__TOKEN = eINSTANCE.getSquare_Token();
 
 		/**
+		 * The meta object literal for the '<em><b>Board</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SQUARE__BOARD = eINSTANCE.getSquare_Board();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Image</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1232,6 +1251,14 @@ public interface GamePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SQUARE___IS_EMPTY = eINSTANCE.getSquare__IsEmpty();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Adjacent Square</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SQUARE___GET_ADJACENT_SQUARE__INT_INT = eINSTANCE.getSquare__GetAdjacentSquare__int_int();
 
 		/**
 		 * The meta object literal for the '{@link com.esolution.games.connect4.model.game.impl.PlayerImpl <em>Player</em>}' class.

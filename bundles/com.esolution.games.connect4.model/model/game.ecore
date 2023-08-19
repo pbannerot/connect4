@@ -16,21 +16,16 @@
     <eOperations name="getFirstAvailableSquare" eType="#//Square">
       <eParameters name="column" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
-    <eOperations name="getAdjacentSquare" eType="#//Square">
-      <eParameters name="sourceSquare" eType="#//Square"/>
-      <eParameters name="columnOffset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eParameters name="rowOffset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eOperations>
     <eOperations name="getSquare" eType="#//Square">
       <eParameters name="column" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eParameters name="row" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="squares" upperBound="-1"
-        eType="#//Square" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nbRow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="6"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nbColumn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="7"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="squares" upperBound="-1"
+        eType="#//Square" eOpposite="#//Square/board"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Token" abstract="true" interface="true">
     <eOperations name="getSide" eType="#//Side"/>
@@ -48,10 +43,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="Square">
     <eOperations name="getImage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     <eOperations name="isEmpty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="getAdjacentSquare" eType="#//Square">
+      <eParameters name="columnOffset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="rowOffset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="row" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="column" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="token" eType="#//Token"
         eOpposite="#//Token/square"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="board" lowerBound="1" eType="#//Board"
+        eOpposite="#//Board/squares"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Player" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="tokens" upperBound="21"

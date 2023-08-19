@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.esolution.games.connect4.model.game.Square#getRow <em>Row</em>}</li>
  *   <li>{@link com.esolution.games.connect4.model.game.Square#getColumn <em>Column</em>}</li>
  *   <li>{@link com.esolution.games.connect4.model.game.Square#getToken <em>Token</em>}</li>
+ *   <li>{@link com.esolution.games.connect4.model.game.Square#getBoard <em>Board</em>}</li>
  * </ul>
  *
  * @see com.esolution.games.connect4.model.game.GamePackage#getSquare()
@@ -93,6 +94,30 @@ public interface Square extends EObject {
 	void setToken(Token value);
 
 	/**
+	 * Returns the value of the '<em><b>Board</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.esolution.games.connect4.model.game.Board#getSquares <em>Squares</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Board</em>' reference.
+	 * @see #setBoard(Board)
+	 * @see com.esolution.games.connect4.model.game.GamePackage#getSquare_Board()
+	 * @see com.esolution.games.connect4.model.game.Board#getSquares
+	 * @model opposite="squares" required="true"
+	 * @generated
+	 */
+	Board getBoard();
+
+	/**
+	 * Sets the value of the '{@link com.esolution.games.connect4.model.game.Square#getBoard <em>Board</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Board</em>' reference.
+	 * @see #getBoard()
+	 * @generated
+	 */
+	void setBoard(Board value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
@@ -107,4 +132,12 @@ public interface Square extends EObject {
 	 * @generated
 	 */
 	boolean isEmpty();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Square getAdjacentSquare(int columnOffset, int rowOffset);
 } // Square

@@ -15,9 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.esolution.games.connect4.model.game.Board#getSquares <em>Squares</em>}</li>
  *   <li>{@link com.esolution.games.connect4.model.game.Board#getNbRow <em>Nb Row</em>}</li>
  *   <li>{@link com.esolution.games.connect4.model.game.Board#getNbColumn <em>Nb Column</em>}</li>
+ *   <li>{@link com.esolution.games.connect4.model.game.Board#getSquares <em>Squares</em>}</li>
  * </ul>
  *
  * @see com.esolution.games.connect4.model.game.GamePackage#getBoard()
@@ -26,13 +26,15 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Board extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Squares</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Squares</b></em>' reference list.
 	 * The list contents are of type {@link com.esolution.games.connect4.model.game.Square}.
+	 * It is bidirectional and its opposite is '{@link com.esolution.games.connect4.model.game.Square#getBoard <em>Board</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Squares</em>' containment reference list.
+	 * @return the value of the '<em>Squares</em>' reference list.
 	 * @see com.esolution.games.connect4.model.game.GamePackage#getBoard_Squares()
-	 * @model containment="true"
+	 * @see com.esolution.games.connect4.model.game.Square#getBoard
+	 * @model opposite="board"
 	 * @generated
 	 */
 	EList<Square> getSquares();
@@ -90,14 +92,6 @@ public interface Board extends EObject {
 	 * @generated
 	 */
 	Square getFirstAvailableSquare(int column);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	Square getAdjacentSquare(Square sourceSquare, int columnOffset, int rowOffset);
 
 	/**
 	 * <!-- begin-user-doc -->

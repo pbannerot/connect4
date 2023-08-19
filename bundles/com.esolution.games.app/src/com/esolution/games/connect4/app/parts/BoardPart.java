@@ -4,9 +4,7 @@
 package com.esolution.games.connect4.app.parts;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -28,13 +26,11 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 
+import com.esolution.games.connect4.core.Connect4Match;
 import com.esolution.games.connect4.model.game.Board;
-import com.esolution.games.connect4.model.game.Game;
 import com.esolution.games.connect4.model.game.GameFactory;
-import com.esolution.games.connect4.model.game.Player;
 import com.esolution.games.connect4.model.game.Side;
 import com.esolution.games.connect4.model.game.Square;
-import com.esolution.games.connect4.model.game.Team;
 import com.esolution.games.connect4.model.game.Token;
 
 /**
@@ -43,39 +39,16 @@ import com.esolution.games.connect4.model.game.Token;
 public class BoardPart {
 	private static final Log logger = LogFactory.getLog(BoardPart.class);
 	
-	private Game connect4Game;
 	private Board board;
 	private List<Label> squares;
-	private Map <Side, Player> players = new HashMap<Side, Player>();
 	private Side currentSide = Side.RED;
 	
 	@Inject MPart boardPart;
 	
 	public BoardPart() {
-		connect4Game = GameFactory.eINSTANCE.createGame();
-		board = GameFactory.eINSTANCE.createBoard();
-		connect4Game.setBoard(board);
-		
-		Team redTeam = GameFactory.eINSTANCE.createTeam();
-		redTeam.setSide(Side.RED);
-		Player redPlayer = GameFactory.eINSTANCE.createHumanPlayer();
-		redTeam.setPlayer(redPlayer);
-		connect4Game.getTeams().add(redTeam);
-		
-		Team yelloTeam = GameFactory.eINSTANCE.createTeam();
-		yelloTeam.setSide(Side.YELLOW);
-		Player yellowPlayer = GameFactory.eINSTANCE.createHumanPlayer();
-		yelloTeam.setPlayer(yellowPlayer);
-		connect4Game.getTeams().add(yelloTeam);
-
-		for (int tokenId = 0; tokenId < 21; tokenId ++) {
-			redPlayer.getTokens().add(GameFactory.eINSTANCE.createRedToken());
-			yellowPlayer.getTokens().add(GameFactory.eINSTANCE.createYellowToken());
-		}
+		board = Connect4Match.getInstance().getBoard();
 		
 		squares = new ArrayList<Label>();
-		players.put(Side.RED, redPlayer);
-		players.put(Side.YELLOW, yellowPlayer);
 	}
 
 	@PostConstruct
@@ -93,6 +66,7 @@ public class BoardPart {
 				Square square = GameFactory.eINSTANCE.createSquare();
 				square.setColumn(column);
 				square.setRow(row);
+				square.setBoard(board);
 				board.getSquares().add(square);
 				
 				Label label = new Label(parent, SWT.NONE | SWT.CENTER);
@@ -111,6 +85,9 @@ public class BoardPart {
 						if (availableSquare != null) {
 							Token token = currentSide.equals(Side.RED) ? GameFactory.eINSTANCE.createRedToken() : GameFactory.eINSTANCE.createYellowToken();
 							availableSquare.setToken(token);
+							token.setSquare(availableSquare);
+							
+							Connect4Match.getInstance().checkWinner(availableSquare);
 
 							currentSide = currentSide.equals(Side.RED) ? Side.YELLOW : Side.RED;
 							

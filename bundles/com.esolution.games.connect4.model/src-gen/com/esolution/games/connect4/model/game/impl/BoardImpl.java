@@ -19,8 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -31,24 +30,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.esolution.games.connect4.model.game.impl.BoardImpl#getSquares <em>Squares</em>}</li>
  *   <li>{@link com.esolution.games.connect4.model.game.impl.BoardImpl#getNbRow <em>Nb Row</em>}</li>
  *   <li>{@link com.esolution.games.connect4.model.game.impl.BoardImpl#getNbColumn <em>Nb Column</em>}</li>
+ *   <li>{@link com.esolution.games.connect4.model.game.impl.BoardImpl#getSquares <em>Squares</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class BoardImpl extends MinimalEObjectImpl.Container implements Board {
-	/**
-	 * The cached value of the '{@link #getSquares() <em>Squares</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSquares()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Square> squares;
-
 	/**
 	 * The default value of the '{@link #getNbRow() <em>Nb Row</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -90,6 +79,16 @@ public class BoardImpl extends MinimalEObjectImpl.Container implements Board {
 	protected int nbColumn = NB_COLUMN_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getSquares() <em>Squares</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSquares()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Square> squares;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -115,7 +114,8 @@ public class BoardImpl extends MinimalEObjectImpl.Container implements Board {
 	 */
 	public EList<Square> getSquares() {
 		if (squares == null) {
-			squares = new EObjectContainmentEList<Square>(Square.class, this, GamePackage.BOARD__SQUARES);
+			squares = new EObjectWithInverseResolvingEList<Square>(Square.class, this, GamePackage.BOARD__SQUARES,
+					GamePackage.SQUARE__BOARD);
 		}
 		return squares;
 	}
@@ -185,35 +185,31 @@ public class BoardImpl extends MinimalEObjectImpl.Container implements Board {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Square getAdjacentSquare(Square sourceSquare, int columnOffset, int rowOffset) {
-		
-		int targetColumn = sourceSquare.getColumn() + columnOffset;
-		int targetRow = sourceSquare.getRow() + rowOffset;
-		
-		if (targetColumn < 0 || targetColumn > getNbColumn())
-			return null;
-		
-		if (targetRow < 0 || targetRow > getNbRow())
-			return null;
-
-		return getSquare(targetColumn, targetRow);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
 	public Square getSquare(int column, int row) {
 		Square targetSquare = null;
-		
+
 		for (Square square : squares) {
 			if (square.getColumn() == column && square.getRow() == row) {
 				targetSquare = square;
 			}
 		}
-		
+
 		return targetSquare;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case GamePackage.BOARD__SQUARES:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getSquares()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -238,12 +234,12 @@ public class BoardImpl extends MinimalEObjectImpl.Container implements Board {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case GamePackage.BOARD__SQUARES:
-			return getSquares();
 		case GamePackage.BOARD__NB_ROW:
 			return getNbRow();
 		case GamePackage.BOARD__NB_COLUMN:
 			return getNbColumn();
+		case GamePackage.BOARD__SQUARES:
+			return getSquares();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -257,15 +253,15 @@ public class BoardImpl extends MinimalEObjectImpl.Container implements Board {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case GamePackage.BOARD__SQUARES:
-			getSquares().clear();
-			getSquares().addAll((Collection<? extends Square>) newValue);
-			return;
 		case GamePackage.BOARD__NB_ROW:
 			setNbRow((Integer) newValue);
 			return;
 		case GamePackage.BOARD__NB_COLUMN:
 			setNbColumn((Integer) newValue);
+			return;
+		case GamePackage.BOARD__SQUARES:
+			getSquares().clear();
+			getSquares().addAll((Collection<? extends Square>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -279,14 +275,14 @@ public class BoardImpl extends MinimalEObjectImpl.Container implements Board {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case GamePackage.BOARD__SQUARES:
-			getSquares().clear();
-			return;
 		case GamePackage.BOARD__NB_ROW:
 			setNbRow(NB_ROW_EDEFAULT);
 			return;
 		case GamePackage.BOARD__NB_COLUMN:
 			setNbColumn(NB_COLUMN_EDEFAULT);
+			return;
+		case GamePackage.BOARD__SQUARES:
+			getSquares().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -300,12 +296,12 @@ public class BoardImpl extends MinimalEObjectImpl.Container implements Board {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case GamePackage.BOARD__SQUARES:
-			return squares != null && !squares.isEmpty();
 		case GamePackage.BOARD__NB_ROW:
 			return nbRow != NB_ROW_EDEFAULT;
 		case GamePackage.BOARD__NB_COLUMN:
 			return nbColumn != NB_COLUMN_EDEFAULT;
+		case GamePackage.BOARD__SQUARES:
+			return squares != null && !squares.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -320,8 +316,6 @@ public class BoardImpl extends MinimalEObjectImpl.Container implements Board {
 		switch (operationID) {
 		case GamePackage.BOARD___GET_FIRST_AVAILABLE_SQUARE__INT:
 			return getFirstAvailableSquare((Integer) arguments.get(0));
-		case GamePackage.BOARD___GET_ADJACENT_SQUARE__SQUARE_INT_INT:
-			return getAdjacentSquare((Square) arguments.get(0), (Integer) arguments.get(1), (Integer) arguments.get(2));
 		case GamePackage.BOARD___GET_SQUARE__INT_INT:
 			return getSquare((Integer) arguments.get(0), (Integer) arguments.get(1));
 		}

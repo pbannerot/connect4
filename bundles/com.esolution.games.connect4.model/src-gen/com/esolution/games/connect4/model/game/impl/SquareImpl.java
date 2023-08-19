@@ -18,7 +18,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
-
+import com.esolution.games.connect4.model.game.Board;
 import com.esolution.games.connect4.model.game.GamePackage;
 import com.esolution.games.connect4.model.game.Square;
 import com.esolution.games.connect4.model.game.Token;
@@ -34,6 +34,7 @@ import com.esolution.games.connect4.model.game.Token;
  *   <li>{@link com.esolution.games.connect4.model.game.impl.SquareImpl#getRow <em>Row</em>}</li>
  *   <li>{@link com.esolution.games.connect4.model.game.impl.SquareImpl#getColumn <em>Column</em>}</li>
  *   <li>{@link com.esolution.games.connect4.model.game.impl.SquareImpl#getToken <em>Token</em>}</li>
+ *   <li>{@link com.esolution.games.connect4.model.game.impl.SquareImpl#getBoard <em>Board</em>}</li>
  * </ul>
  *
  * @generated
@@ -85,6 +86,16 @@ public class SquareImpl extends MinimalEObjectImpl.Container implements Square {
 	 * @ordered
 	 */
 	protected Token token;
+
+	/**
+	 * The cached value of the '{@link #getBoard() <em>Board</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBoard()
+	 * @generated
+	 * @ordered
+	 */
+	protected Board board;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -215,6 +226,71 @@ public class SquareImpl extends MinimalEObjectImpl.Container implements Square {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Board getBoard() {
+		if (board != null && board.eIsProxy()) {
+			InternalEObject oldBoard = (InternalEObject) board;
+			board = (Board) eResolveProxy(oldBoard);
+			if (board != oldBoard) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GamePackage.SQUARE__BOARD, oldBoard,
+							board));
+			}
+		}
+		return board;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Board basicGetBoard() {
+		return board;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBoard(Board newBoard, NotificationChain msgs) {
+		Board oldBoard = board;
+		board = newBoard;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GamePackage.SQUARE__BOARD,
+					oldBoard, newBoard);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBoard(Board newBoard) {
+		if (newBoard != board) {
+			NotificationChain msgs = null;
+			if (board != null)
+				msgs = ((InternalEObject) board).eInverseRemove(this, GamePackage.BOARD__SQUARES, Board.class, msgs);
+			if (newBoard != null)
+				msgs = ((InternalEObject) newBoard).eInverseAdd(this, GamePackage.BOARD__SQUARES, Board.class, msgs);
+			msgs = basicSetBoard(newBoard, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GamePackage.SQUARE__BOARD, newBoard, newBoard));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public Object getImage() {
@@ -245,6 +321,24 @@ public class SquareImpl extends MinimalEObjectImpl.Container implements Square {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Square getAdjacentSquare(int columnOffset, int rowOffset) {
+		int targetColumn = getColumn() + columnOffset;
+		int targetRow = getRow() + rowOffset;
+		
+		if (targetColumn < 0 || targetColumn > getBoard().getNbColumn())
+			return null;
+		
+		if (targetRow < 0 || targetRow > getBoard().getNbRow())
+			return null;
+
+		return getBoard().getSquare(targetColumn, targetRow);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -254,6 +348,10 @@ public class SquareImpl extends MinimalEObjectImpl.Container implements Square {
 			if (token != null)
 				msgs = ((InternalEObject) token).eInverseRemove(this, GamePackage.TOKEN__SQUARE, Token.class, msgs);
 			return basicSetToken((Token) otherEnd, msgs);
+		case GamePackage.SQUARE__BOARD:
+			if (board != null)
+				msgs = ((InternalEObject) board).eInverseRemove(this, GamePackage.BOARD__SQUARES, Board.class, msgs);
+			return basicSetBoard((Board) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -268,6 +366,8 @@ public class SquareImpl extends MinimalEObjectImpl.Container implements Square {
 		switch (featureID) {
 		case GamePackage.SQUARE__TOKEN:
 			return basicSetToken(null, msgs);
+		case GamePackage.SQUARE__BOARD:
+			return basicSetBoard(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -288,6 +388,10 @@ public class SquareImpl extends MinimalEObjectImpl.Container implements Square {
 			if (resolve)
 				return getToken();
 			return basicGetToken();
+		case GamePackage.SQUARE__BOARD:
+			if (resolve)
+				return getBoard();
+			return basicGetBoard();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -308,6 +412,9 @@ public class SquareImpl extends MinimalEObjectImpl.Container implements Square {
 			return;
 		case GamePackage.SQUARE__TOKEN:
 			setToken((Token) newValue);
+			return;
+		case GamePackage.SQUARE__BOARD:
+			setBoard((Board) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -330,6 +437,9 @@ public class SquareImpl extends MinimalEObjectImpl.Container implements Square {
 		case GamePackage.SQUARE__TOKEN:
 			setToken((Token) null);
 			return;
+		case GamePackage.SQUARE__BOARD:
+			setBoard((Board) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -348,6 +458,8 @@ public class SquareImpl extends MinimalEObjectImpl.Container implements Square {
 			return column != COLUMN_EDEFAULT;
 		case GamePackage.SQUARE__TOKEN:
 			return token != null;
+		case GamePackage.SQUARE__BOARD:
+			return board != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -364,6 +476,8 @@ public class SquareImpl extends MinimalEObjectImpl.Container implements Square {
 			return getImage();
 		case GamePackage.SQUARE___IS_EMPTY:
 			return isEmpty();
+		case GamePackage.SQUARE___GET_ADJACENT_SQUARE__INT_INT:
+			return getAdjacentSquare((Integer) arguments.get(0), (Integer) arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

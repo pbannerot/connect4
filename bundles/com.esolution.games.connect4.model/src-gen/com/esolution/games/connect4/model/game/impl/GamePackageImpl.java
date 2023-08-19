@@ -249,7 +249,7 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 	 * @generated
 	 */
 	public EReference getBoard_Squares() {
-		return (EReference) boardEClass.getEStructuralFeatures().get(0);
+		return (EReference) boardEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -258,7 +258,7 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 	 * @generated
 	 */
 	public EAttribute getBoard_NbRow() {
-		return (EAttribute) boardEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) boardEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -267,7 +267,7 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 	 * @generated
 	 */
 	public EAttribute getBoard_NbColumn() {
-		return (EAttribute) boardEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) boardEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -284,17 +284,8 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBoard__GetAdjacentSquare__Square_int_int() {
-		return boardEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getBoard__GetSquare__int_int() {
-		return boardEClass.getEOperations().get(2);
+		return boardEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -401,6 +392,15 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSquare_Board() {
+		return (EReference) squareEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getSquare__GetImage() {
 		return squareEClass.getEOperations().get(0);
 	}
@@ -412,6 +412,15 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 	 */
 	public EOperation getSquare__IsEmpty() {
 		return squareEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSquare__GetAdjacentSquare__int_int() {
+		return squareEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -506,11 +515,10 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 		createEReference(teamEClass, TEAM__PLAYER);
 
 		boardEClass = createEClass(BOARD);
-		createEReference(boardEClass, BOARD__SQUARES);
 		createEAttribute(boardEClass, BOARD__NB_ROW);
 		createEAttribute(boardEClass, BOARD__NB_COLUMN);
+		createEReference(boardEClass, BOARD__SQUARES);
 		createEOperation(boardEClass, BOARD___GET_FIRST_AVAILABLE_SQUARE__INT);
-		createEOperation(boardEClass, BOARD___GET_ADJACENT_SQUARE__SQUARE_INT_INT);
 		createEOperation(boardEClass, BOARD___GET_SQUARE__INT_INT);
 
 		tokenEClass = createEClass(TOKEN);
@@ -527,8 +535,10 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 		createEAttribute(squareEClass, SQUARE__ROW);
 		createEAttribute(squareEClass, SQUARE__COLUMN);
 		createEReference(squareEClass, SQUARE__TOKEN);
+		createEReference(squareEClass, SQUARE__BOARD);
 		createEOperation(squareEClass, SQUARE___GET_IMAGE);
 		createEOperation(squareEClass, SQUARE___IS_EMPTY);
+		createEOperation(squareEClass, SQUARE___GET_ADJACENT_SQUARE__INT_INT);
 
 		playerEClass = createEClass(PLAYER);
 		createEReference(playerEClass, PLAYER__TOKENS);
@@ -595,23 +605,17 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 				IS_ORDERED);
 
 		initEClass(boardEClass, Board.class, "Board", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBoard_Squares(), this.getSquare(), null, "squares", null, 0, -1, Board.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 		initEAttribute(getBoard_NbRow(), ecorePackage.getEInt(), "nbRow", "6", 0, 1, Board.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBoard_NbColumn(), ecorePackage.getEInt(), "nbColumn", "7", 0, 1, Board.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBoard_Squares(), this.getSquare(), this.getSquare_Board(), "squares", null, 0, -1,
+				Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getBoard__GetFirstAvailableSquare__int(), this.getSquare(),
 				"getFirstAvailableSquare", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "column", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getBoard__GetAdjacentSquare__Square_int_int(), this.getSquare(), "getAdjacentSquare", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getSquare(), "sourceSquare", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "columnOffset", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "rowOffset", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getBoard__GetSquare__int_int(), this.getSquare(), "getSquare", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "column", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -643,10 +647,18 @@ public class GamePackageImpl extends EPackageImpl implements GamePackage {
 		initEReference(getSquare_Token(), this.getToken(), this.getToken_Square(), "token", null, 0, 1, Square.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSquare_Board(), this.getBoard(), this.getBoard_Squares(), "board", null, 1, 1, Square.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getSquare__GetImage(), ecorePackage.getEJavaObject(), "getImage", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getSquare__IsEmpty(), ecorePackage.getEBoolean(), "isEmpty", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSquare__GetAdjacentSquare__int_int(), this.getSquare(), "getAdjacentSquare", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "columnOffset", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "rowOffset", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(playerEClass, Player.class, "Player", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPlayer_Tokens(), this.getToken(), null, "tokens", null, 0, 21, Player.class, !IS_TRANSIENT,

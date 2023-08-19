@@ -3,9 +3,13 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Core
 Bundle-SymbolicName: com.esolution.games.connect4.core
 Bundle-Version: 1.0.0.qualifier
+Export-Package: com.esolution.games.connect4.core
+Import-Package: org.apache.commons.logging;version="1.2.0",
+ org.apache.log4j;version="1.2.24"
 Bundle-Activator: com.esolution.games.connect4.core.Activator
 Bundle-Vendor: ESOLUTION
-Require-Bundle: org.eclipse.core.runtime
+Require-Bundle: org.eclipse.core.runtime,
+ com.esolution.games.connect4.model
 Bundle-RequiredExecutionEnvironment: JavaSE-18
 Automatic-Module-Name: com.esolution.games.connect4.core
 Bundle-ActivationPolicy: lazy

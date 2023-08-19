@@ -25,8 +25,7 @@
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_6wlLisgZEeSyMNYR5xypkQ" elementId="file" label="File">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLi8gZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.handleditem.file.open" label="Open" iconURI="platform:/plugin/com.esolution.games.connect4.app/icons/open_in_app.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjMgZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.handleditem.save" label="Save" iconURI="platform:/plugin/com.esolution.games.connect4.app/icons/save_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_uYFHID0cEe6J1Jkm2p4Kyw" elementId="com.esolution.games.connect4.app.handledmenuitem.newmatch" label="New Match" iconURI="platform:/plugin/com.esolution.games.connect4.app/icons/home.png" tooltip="Start a new Connect4 match" mnemonics="" command="_8hypQD0bEe6J1Jkm2p4Kyw"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjcgZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.handleditem.quit" label="Quit" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_6wlLjsgZEeSyMNYR5xypkQ" elementId="help" label="Help">
@@ -35,8 +34,7 @@
     </mainMenu>
     <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.trimbar.top">
       <children xsi:type="menu:ToolBar" xmi:id="_6wlLlsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.toolbar">
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLmMgZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.handleditem.trimbar.top.save" iconURI="platform:/plugin/com.esolution.games.connect4.app/icons/save_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLl8gZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.handleditem.trimbar.top.open" iconURI="platform:/plugin/com.esolution.games.connect4.app/icons/open_in_app.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_agKPkD0eEe6J1Jkm2p4Kyw" elementId="com.esolution.games.connect4.app.handleditem.trimbar.top.new" label="New Match" iconURI="platform:/plugin/com.esolution.games.connect4.app/icons/home.png" tooltip="Start a new Connect4 Match" command="_8hypQD0bEe6J1Jkm2p4Kyw"/>
       </children>
     </trimBars>
   </children>
@@ -44,11 +42,13 @@
   <handlers xmi:id="_6wlLgcgZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.handler.openCommand" contributionURI="bundleclass://com.esolution.games.connect4.app/com.esolution.games.connect4.app.handlers.OpenHandler" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.handler.saveCommand" contributionURI="bundleclass://com.esolution.games.connect4.app/com.esolution.games.connect4.app.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.handler.aboutCommand" contributionURI="bundleclass://com.esolution.games.connect4.app/com.esolution.games.connect4.app.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_JFEjoD0cEe6J1Jkm2p4Kyw" elementId="com.esolution.games.connect4.app.handler.new" contributionURI="bundleclass://com.esolution.games.connect4.app/com.esolution.games.connect4.app.handlers.NewMatchHandler" command="_8hypQD0bEe6J1Jkm2p4Kyw"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.keybinding.m1o" keySequence="M1+O" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLhcgZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.keybinding.m1s" keySequence="M1+S" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLiMgZEeSyMNYR5xypkQ" elementId="com.esolution.games.connect4.app.keybinding.m1a" keySequence="M1+A" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
+    <bindings xmi:id="_yuAwID0dEe6J1Jkm2p4Kyw" elementId="com.esolution.games.connect4.app.keybinding.m1n" keySequence="M1+N" command="_8hypQD0bEe6J1Jkm2p4Kyw"/>
   </bindingTables>
   <rootContext xmi:id="_6wlLecgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_6wlLesgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
@@ -58,6 +58,7 @@
   <commands xmi:id="_6wlLgMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.open" commandName="openCommand"/>
   <commands xmi:id="_6wlLg8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
   <commands xmi:id="_6wlLhsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <commands xmi:id="_8hypQD0bEe6J1Jkm2p4Kyw" elementId="com.esolution.games.connect4.app.command.new" commandName="newGameCommand" description="Start a new Connect4 Match"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
