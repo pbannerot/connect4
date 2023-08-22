@@ -24,7 +24,7 @@ public class HorizontalLine implements Rule {
 		
 		for (int offset = 0; offset < board.getNbColumn() - 1; offset ++) {
 			Square adjacentSquare = firstSquareOnRow.getAdjacentSquare(offset, 0);
-			logger.debug(adjacentSquare);
+//			logger.debug(adjacentSquare);
 			
 			if (!adjacentSquare.isEmpty() && side.equals(adjacentSquare.getToken().getSide())) {
 				adjacentSquares.add(adjacentSquare);

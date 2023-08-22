@@ -25,7 +25,7 @@ public class VerticalLine implements Rule {
 		
 		for (int offset = 0 ; offset < board.getNbRow(); offset ++) {
 			Square adjacentSquare = lastSquareOnColumn.getAdjacentSquare(0, -offset);
-			logger.debug(adjacentSquare);
+//			logger.debug(adjacentSquare);
 			
 			if (!adjacentSquare.isEmpty() && side.equals(adjacentSquare.getToken().getSide())) {
 				adjacentSquares.add(adjacentSquare);

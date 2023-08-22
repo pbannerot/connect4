@@ -77,13 +77,13 @@ public class Connect4Match {
 	public Side checkWinner(Square availableSquare) {
 		List<RuleCase> rules = Stream
 				.of(new RuleCase(new HorizontalLine()), new RuleCase(new VerticalLine()),
-						new RuleCase(new DiagonalLineFactory(DiagonalDirection.TOP_DOWN).getDiagonalLine()),
-						new RuleCase(new DiagonalLineFactory(DiagonalDirection.DOWN_TOP).getDiagonalLine()))
+						new RuleCase(new DiagonalLineFactory(DiagonalDirection.TOP_LEFT_TO_DOWN_RIGHT).getDiagonalLine()),
+						new RuleCase(new DiagonalLineFactory(DiagonalDirection.DOWN_LEFT_TO_TOP_RIGHT).getDiagonalLine()))
 				.collect(Collectors.toCollection(ArrayList::new));
 		for (RuleCase ruleCase : rules) {
 			List<Square> winner = ruleCase.checkRule(board, availableSquare);
 			if (winner != null && winner.size() >= 4) {
-				logger.info("WINNER");
+				logger.info("WINNER: "  + availableSquare.getToken().getSide());
 			}
 		}
 

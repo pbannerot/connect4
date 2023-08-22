@@ -15,11 +15,11 @@ public class DiagonalLineFactory {
 	public DiagonalLine getDiagonalLine() {
 		DiagonalLine diagonalLine = null;
 		switch (diagonalDirection) {
-		case DOWN_TOP:
-			diagonalLine = new DownTopDiagonal();
+		case DOWN_LEFT_TO_TOP_RIGHT:
+			diagonalLine = new DownLeftToTopRightDiagonal();
 			break;
-		case TOP_DOWN:
-			diagonalLine = new TopDownDiagonal();
+		case TOP_LEFT_TO_DOWN_RIGHT:
+			diagonalLine = new TopLeftToDownRightDiagonal();
 			break;
 		}
 		return diagonalLine;
